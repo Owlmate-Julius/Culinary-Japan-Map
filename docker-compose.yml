@@ -1,14 +1,13 @@
-version: "3.8"
 services:
   db:
     container_name: mongo-db
-    image: mongo:8.0
+    image: mongo:latest
     restart: always
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: password
+      - MONGO_INITDB_ROOT_USERNAME: root
+      - MONGO_INITDB_ROOT_PASSWORD: password
     ports:
-      - "27017:27017"
+      - '27017:27017'
     volumes:
       - dbdata:/data/db
 
