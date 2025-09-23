@@ -26,7 +26,7 @@ const DishSchema = new Schema({
     category: {
         type: String,
         required: [true, "Category is required."],
-        enum: ["Ramen", "Sushi", "Donburi", "Sweets", "Street Food", "Other"],
+        enum: ["Noodles", "Ramen", "Sushi", "Donburi", "Sweets", "Street Food", "Seafood", "Fried Food", "Other"],
     },
     // array of user IDs who have this dish on their wishlist
     // => easily track who wants to try what
