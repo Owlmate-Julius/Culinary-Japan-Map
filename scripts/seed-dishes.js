@@ -1,6 +1,6 @@
 print("Seeding the collection 'locations' in the 'foodlist' db");
 
-db = db.getSiblingDB("culinary-japan-map");
+db = db.getSiblingDB("culinaryjapanmap");
 db.dishes.insert([
   {
     "name": "Miso Ramen",

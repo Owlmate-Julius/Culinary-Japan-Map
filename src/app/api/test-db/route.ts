@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
 import dbConnect from "@/lib/mongodb";
 import Dish from "@/models/Dish";
+import { findAllDishes } from "@/services/dish-service"
 
 export async function GET() {
     try {
-        await dbConnect();
-        const dishes = await Dish.find({});
+        const dishes = await findAllDishes();
         return NextResponse.json({ success: true, data: dishes }, { status: 200 });
     } catch (error) {
         console.error("API Error:", error);
