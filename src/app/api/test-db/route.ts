@@ -1,6 +1,4 @@
 import { NextResponse } from "next/server";
-import dbConnect from "@/lib/mongodb";
-import Dish from "@/models/Dish";
 import { findAllDishes } from "@/services/dish-service"
 
 export async function GET() {

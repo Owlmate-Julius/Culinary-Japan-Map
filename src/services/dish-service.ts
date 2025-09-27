@@ -3,6 +3,7 @@ import dbConnect from "@/lib/mongodb";
 import { FilterDishType, FilterWishlistType } from "@/types/dish-types";
 import { QueryOptions } from "mongoose";
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 async function findDishes(filter: FilterDishType | FilterWishlistType | {}): Promise<DishType[] | []> {
     await dbConnect();
     try {
