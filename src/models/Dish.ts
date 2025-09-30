@@ -1,5 +1,7 @@
 import { Schema, InferSchemaType, model, models } from "mongoose";
 
+export const DishCategories = ["Noodles", "Ramen", "Sushi", "Donburi", "Sweets", "Street Food", "Seafood", "Fried Food", "Other"] as const;
+
 const DishSchema = new Schema({
     // name of the Japanese dish, e.g., "Hakodate Shio Ramen"
     name: {
@@ -26,7 +28,7 @@ const DishSchema = new Schema({
     category: {
         type: String,
         required: [true, "Category is required."],
-        enum: ["Noodles", "Ramen", "Sushi", "Donburi", "Sweets", "Street Food", "Seafood", "Fried Food", "Other"],
+        enum: DishCategories, // 2. Verwende die Konstante hier
     },
     // array of user IDs who have this dish on their wishlist
     // => easily track who wants to try what
@@ -37,6 +39,7 @@ const DishSchema = new Schema({
 }, { timestamps: true });
 
 export type DishType = InferSchemaType<typeof DishSchema>;
+export type DishCategory = typeof DishCategories[number];
 
 // to prevent recompiling the model on every hot-reload
 const Dish = models.Dish || model("Dish", DishSchema);
