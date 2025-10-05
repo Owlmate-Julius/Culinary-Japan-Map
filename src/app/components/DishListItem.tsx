@@ -10,7 +10,7 @@ const DishListItem = ({ dish }: PropsInterface) => {
     <>
       {dish && (
         <div className="bg-zinc-50 rounded-lg p-6 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-green-50">
-          <Link href={`/dishes/${dish._id}`}>
+          <Link href={`/dish/${dish._id}`}>
             <div className="text-center flex flex-col items-center space-y-2">
               <h1 className="text-3xl">{dish.name}</h1>
               <div className="text-purple-500">{dish.prefecture}</div>
