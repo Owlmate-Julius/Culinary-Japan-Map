@@ -38,7 +38,11 @@ const DishSchema = new Schema({
     },
 }, { timestamps: true });
 
-export type DishType = InferSchemaType<typeof DishSchema>;
+type InferredDishType = InferSchemaType<typeof DishSchema>;
+export type DishType = InferredDishType & {
+    _id: string;
+};
+
 export type DishCategory = typeof DishCategories[number];
 
 // to prevent recompiling the model on every hot-reload
