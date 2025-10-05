@@ -1,4 +1,5 @@
 import { findAllDishes } from "@/services/dish-service";
+import DishListItem from "./components/DishListItem";
 
 export default async function Home() {
   try {
@@ -6,18 +7,8 @@ export default async function Home() {
 
     return (
       <div className="container mx-auto max-w-7xl p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {dishes.map((dish, index) => (
-          <div key={index}>
-            <div className="bg-zinc-50 rounded-lg p-6 shadow-lg">
-              <div className="text-center flex flex-col items-center space-y-2">
-                <h1 className="text-3xl">{dish.name}</h1>
-                <div className="text-purple-500">{dish.prefecture}</div>
-                <div className="text-gray-600">{dish.description}</div>
-                <span className="w-80 h-px bg-gray-300"></span>
-                <div className="text-blue-500 font-mono text-xs">{dish.category}</div>
-              </div>
-            </div>
-          </div>
+        {dishes.map((dish) => (
+          <DishListItem key={dish._id} dish={dish} />
         ))}
       </div>
     );
